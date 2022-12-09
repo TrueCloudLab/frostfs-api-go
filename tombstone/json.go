@@ -1,8 +1,8 @@
 package tombstone
 
 import (
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
-	tombstone "github.com/nspcc-dev/neofs-api-go/v2/tombstone/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
+	tombstone "github.com/TrueCloudLab/frostfs-api-go/v2/tombstone/grpc"
 )
 
 func (s *Tombstone) MarshalJSON() ([]byte, error) {

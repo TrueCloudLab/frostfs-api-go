@@ -1,7 +1,7 @@
 package storagegroup
 
 import (
-	"github.com/nspcc-dev/neofs-api-go/v2/refs"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/refs"
 )
 
 // StorageGroup is a unified structure of StorageGroup

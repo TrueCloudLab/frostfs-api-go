@@ -1,11 +1,11 @@
 package netmap
 
 import (
-	netmap "github.com/nspcc-dev/neofs-api-go/v2/netmap/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/refs"
-	refsGRPC "github.com/nspcc-dev/neofs-api-go/v2/refs/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
+	netmap "github.com/TrueCloudLab/frostfs-api-go/v2/netmap/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/refs"
+	refsGRPC "github.com/TrueCloudLab/frostfs-api-go/v2/refs/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
 )
 
 func (f *Filter) ToGRPCMessage() grpc.Message {

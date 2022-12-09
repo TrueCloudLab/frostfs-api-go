@@ -3,9 +3,9 @@ package refs
 import (
 	"encoding/binary"
 
-	refs "github.com/nspcc-dev/neofs-api-go/v2/refs/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
-	"github.com/nspcc-dev/neofs-api-go/v2/util/proto"
+	refs "github.com/TrueCloudLab/frostfs-api-go/v2/refs/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/util/proto"
 )
 
 const (

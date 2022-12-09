@@ -3,15 +3,15 @@ package session
 import (
 	"fmt"
 
-	"github.com/nspcc-dev/neofs-api-go/v2/acl"
-	aclGRPC "github.com/nspcc-dev/neofs-api-go/v2/acl/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/refs"
-	refsGRPC "github.com/nspcc-dev/neofs-api-go/v2/refs/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
-	session "github.com/nspcc-dev/neofs-api-go/v2/session/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/status"
-	statusGRPC "github.com/nspcc-dev/neofs-api-go/v2/status/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/acl"
+	aclGRPC "github.com/TrueCloudLab/frostfs-api-go/v2/acl/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/refs"
+	refsGRPC "github.com/TrueCloudLab/frostfs-api-go/v2/refs/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
+	session "github.com/TrueCloudLab/frostfs-api-go/v2/session/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/status"
+	statusGRPC "github.com/TrueCloudLab/frostfs-api-go/v2/status/grpc"
 )
 
 func (c *CreateRequestBody) ToGRPCMessage() grpc.Message {

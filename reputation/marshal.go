@@ -1,9 +1,9 @@
 package reputation
 
 import (
-	reputation "github.com/nspcc-dev/neofs-api-go/v2/reputation/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
-	protoutil "github.com/nspcc-dev/neofs-api-go/v2/util/proto"
+	reputation "github.com/TrueCloudLab/frostfs-api-go/v2/reputation/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
+	protoutil "github.com/TrueCloudLab/frostfs-api-go/v2/util/proto"
 )
 
 const (

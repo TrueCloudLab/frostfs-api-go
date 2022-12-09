@@ -1,9 +1,9 @@
 package container
 
 import (
-	acl "github.com/nspcc-dev/neofs-api-go/v2/acl/grpc"
-	refs "github.com/nspcc-dev/neofs-api-go/v2/refs/grpc"
-	session "github.com/nspcc-dev/neofs-api-go/v2/session/grpc"
+	acl "github.com/TrueCloudLab/frostfs-api-go/v2/acl/grpc"
+	refs "github.com/TrueCloudLab/frostfs-api-go/v2/refs/grpc"
+	session "github.com/TrueCloudLab/frostfs-api-go/v2/session/grpc"
 )
 
 // SetContainer sets container of the request.

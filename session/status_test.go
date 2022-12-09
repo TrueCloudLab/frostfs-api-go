@@ -3,8 +3,8 @@ package session_test
 import (
 	"testing"
 
-	"github.com/nspcc-dev/neofs-api-go/v2/session"
-	statustest "github.com/nspcc-dev/neofs-api-go/v2/status/test"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/session"
+	statustest "github.com/TrueCloudLab/frostfs-api-go/v2/status/test"
 )
 
 func TestStatusCodes(t *testing.T) {

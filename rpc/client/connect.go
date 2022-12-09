@@ -7,7 +7,7 @@ import (
 	"net"
 	"net/url"
 
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/grpc"
 	grpcstd "google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/credentials/insecure"

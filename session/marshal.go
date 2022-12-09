@@ -1,9 +1,9 @@
 package session
 
 import (
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
-	session "github.com/nspcc-dev/neofs-api-go/v2/session/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/util/proto"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
+	session "github.com/TrueCloudLab/frostfs-api-go/v2/session/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/util/proto"
 	goproto "google.golang.org/protobuf/proto"
 )
 

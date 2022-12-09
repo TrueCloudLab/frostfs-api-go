@@ -1,8 +1,8 @@
 package audit
 
 import (
-	audit "github.com/nspcc-dev/neofs-api-go/v2/audit/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
+	audit "github.com/TrueCloudLab/frostfs-api-go/v2/audit/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
 )
 
 func (a *DataAuditResult) MarshalJSON() ([]byte, error) {

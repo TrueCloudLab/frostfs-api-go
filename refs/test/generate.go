@@ -3,7 +3,7 @@ package refstest
 import (
 	"math/rand"
 
-	"github.com/nspcc-dev/neofs-api-go/v2/refs"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/refs"
 )
 
 func GenerateVersion(empty bool) *refs.Version {

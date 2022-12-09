@@ -3,8 +3,8 @@ package signature
 import (
 	"crypto/ecdsa"
 
-	"github.com/nspcc-dev/neofs-api-go/v2/refs"
-	crypto "github.com/nspcc-dev/neofs-crypto"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/refs"
+	crypto "github.com/TrueCloudLab/frostfs-crypto"
 )
 
 type DataSource interface {

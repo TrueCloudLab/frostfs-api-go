@@ -1,9 +1,9 @@
 package accounting
 
 import (
-	accounting "github.com/nspcc-dev/neofs-api-go/v2/accounting/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
-	protoutil "github.com/nspcc-dev/neofs-api-go/v2/util/proto"
+	accounting "github.com/TrueCloudLab/frostfs-api-go/v2/accounting/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
+	protoutil "github.com/TrueCloudLab/frostfs-api-go/v2/util/proto"
 )
 
 const (

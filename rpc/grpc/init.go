@@ -5,7 +5,7 @@ import (
 	"io"
 	"time"
 
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/common"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/common"
 	"google.golang.org/grpc"
 )
 

@@ -1,8 +1,8 @@
 package netmap
 
 import (
-	netmap "github.com/nspcc-dev/neofs-api-go/v2/netmap/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
+	netmap "github.com/TrueCloudLab/frostfs-api-go/v2/netmap/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
 )
 
 func (p *PlacementPolicy) MarshalJSON() ([]byte, error) {

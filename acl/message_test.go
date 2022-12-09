@@ -3,9 +3,9 @@ package acl_test
 import (
 	"testing"
 
-	acltest "github.com/nspcc-dev/neofs-api-go/v2/acl/test"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
-	messagetest "github.com/nspcc-dev/neofs-api-go/v2/rpc/message/test"
+	acltest "github.com/TrueCloudLab/frostfs-api-go/v2/acl/test"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
+	messagetest "github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message/test"
 )
 
 func TestMessageConvert(t *testing.T) {

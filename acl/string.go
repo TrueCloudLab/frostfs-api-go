@@ -1,7 +1,7 @@
 package acl
 
 import (
-	acl "github.com/nspcc-dev/neofs-api-go/v2/acl/grpc"
+	acl "github.com/TrueCloudLab/frostfs-api-go/v2/acl/grpc"
 )
 
 // String returns string representation of Action.

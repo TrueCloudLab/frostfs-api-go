@@ -3,8 +3,8 @@ package container_test
 import (
 	"testing"
 
-	"github.com/nspcc-dev/neofs-api-go/v2/container"
-	containertest "github.com/nspcc-dev/neofs-api-go/v2/container/test"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/container"
+	containertest "github.com/TrueCloudLab/frostfs-api-go/v2/container/test"
 	"github.com/stretchr/testify/require"
 )
 

@@ -1,7 +1,7 @@
 package audit
 
 import (
-	refs "github.com/nspcc-dev/neofs-api-go/v2/refs/grpc"
+	refs "github.com/TrueCloudLab/frostfs-api-go/v2/refs/grpc"
 )
 
 // SetVersion is a Version field setter.

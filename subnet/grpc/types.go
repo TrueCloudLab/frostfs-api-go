@@ -1,7 +1,7 @@
 package subnet
 
 import (
-	refs "github.com/nspcc-dev/neofs-api-go/v2/refs/grpc"
+	refs "github.com/TrueCloudLab/frostfs-api-go/v2/refs/grpc"
 )
 
 // SetID returns identifier of the subnet. Nil arg is equivalent to zero subnet ID.

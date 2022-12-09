@@ -1,8 +1,8 @@
 package container
 
 import (
-	netmap "github.com/nspcc-dev/neofs-api-go/v2/netmap/grpc"
-	refs "github.com/nspcc-dev/neofs-api-go/v2/refs/grpc"
+	netmap "github.com/TrueCloudLab/frostfs-api-go/v2/netmap/grpc"
+	refs "github.com/TrueCloudLab/frostfs-api-go/v2/refs/grpc"
 )
 
 // SetKey sets key to the container attribute.

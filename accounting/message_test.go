@@ -3,9 +3,9 @@ package accounting_test
 import (
 	"testing"
 
-	accountingtest "github.com/nspcc-dev/neofs-api-go/v2/accounting/test"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
-	messagetest "github.com/nspcc-dev/neofs-api-go/v2/rpc/message/test"
+	accountingtest "github.com/TrueCloudLab/frostfs-api-go/v2/accounting/test"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
+	messagetest "github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message/test"
 )
 
 func TestMessage(t *testing.T) {

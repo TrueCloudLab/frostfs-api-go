@@ -1,10 +1,10 @@
 package rpc
 
 import (
-	"github.com/nspcc-dev/neofs-api-go/v2/object"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/client"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/common"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/object"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/client"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/common"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
 )
 
 const serviceObject = serviceNamePrefix + "object.ObjectService"

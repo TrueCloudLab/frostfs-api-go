@@ -1,11 +1,11 @@
 package reputation
 
 import (
-	"github.com/nspcc-dev/neofs-api-go/v2/refs"
-	refsGRPC "github.com/nspcc-dev/neofs-api-go/v2/refs/grpc"
-	reputation "github.com/nspcc-dev/neofs-api-go/v2/reputation/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/refs"
+	refsGRPC "github.com/TrueCloudLab/frostfs-api-go/v2/refs/grpc"
+	reputation "github.com/TrueCloudLab/frostfs-api-go/v2/reputation/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
 )
 
 // ToGRPCMessage converts PeerID to gRPC-generated

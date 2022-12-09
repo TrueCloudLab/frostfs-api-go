@@ -1,8 +1,8 @@
 package subnettest
 
 import (
-	refstest "github.com/nspcc-dev/neofs-api-go/v2/refs/test"
-	"github.com/nspcc-dev/neofs-api-go/v2/subnet"
+	refstest "github.com/TrueCloudLab/frostfs-api-go/v2/refs/test"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/subnet"
 )
 
 func GenerateSubnetInfo(empty bool) *subnet.Info {

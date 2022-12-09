@@ -1,17 +1,17 @@
 package container
 
 import (
-	"github.com/nspcc-dev/neofs-api-go/v2/acl"
-	aclGRPC "github.com/nspcc-dev/neofs-api-go/v2/acl/grpc"
-	container "github.com/nspcc-dev/neofs-api-go/v2/container/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/netmap"
-	netmapGRPC "github.com/nspcc-dev/neofs-api-go/v2/netmap/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/refs"
-	refsGRPC "github.com/nspcc-dev/neofs-api-go/v2/refs/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
-	"github.com/nspcc-dev/neofs-api-go/v2/session"
-	sessionGRPC "github.com/nspcc-dev/neofs-api-go/v2/session/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/acl"
+	aclGRPC "github.com/TrueCloudLab/frostfs-api-go/v2/acl/grpc"
+	container "github.com/TrueCloudLab/frostfs-api-go/v2/container/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/netmap"
+	netmapGRPC "github.com/TrueCloudLab/frostfs-api-go/v2/netmap/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/refs"
+	refsGRPC "github.com/TrueCloudLab/frostfs-api-go/v2/refs/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/session"
+	sessionGRPC "github.com/TrueCloudLab/frostfs-api-go/v2/session/grpc"
 )
 
 func (a *Attribute) ToGRPCMessage() grpc.Message {

@@ -1,8 +1,8 @@
 package refs
 
 import (
-	refs "github.com/nspcc-dev/neofs-api-go/v2/refs/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
+	refs "github.com/TrueCloudLab/frostfs-api-go/v2/refs/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
 )
 
 func (a *Address) MarshalJSON() ([]byte, error) {

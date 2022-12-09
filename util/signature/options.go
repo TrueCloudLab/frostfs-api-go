@@ -5,9 +5,9 @@ import (
 	"encoding/base64"
 	"fmt"
 
-	"github.com/nspcc-dev/neofs-api-go/v2/refs"
-	"github.com/nspcc-dev/neofs-api-go/v2/util/signature/walletconnect"
-	crypto "github.com/nspcc-dev/neofs-crypto"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/refs"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/util/signature/walletconnect"
+	crypto "github.com/TrueCloudLab/frostfs-crypto"
 )
 
 type cfg struct {

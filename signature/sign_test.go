@@ -3,9 +3,9 @@ package signature
 import (
 	"testing"
 
-	"github.com/nspcc-dev/neofs-api-go/v2/accounting"
-	"github.com/nspcc-dev/neofs-api-go/v2/session"
-	crypto "github.com/nspcc-dev/neofs-crypto"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/accounting"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/session"
+	crypto "github.com/TrueCloudLab/frostfs-crypto"
 	"github.com/stretchr/testify/require"
 )
 

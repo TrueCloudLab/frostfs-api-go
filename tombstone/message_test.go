@@ -3,9 +3,9 @@ package tombstone_test
 import (
 	"testing"
 
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
-	messagetest "github.com/nspcc-dev/neofs-api-go/v2/rpc/message/test"
-	tombstonetest "github.com/nspcc-dev/neofs-api-go/v2/tombstone/test"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
+	messagetest "github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message/test"
+	tombstonetest "github.com/TrueCloudLab/frostfs-api-go/v2/tombstone/test"
 )
 
 func TestMessageConvert(t *testing.T) {

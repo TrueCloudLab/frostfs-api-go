@@ -1,7 +1,7 @@
 package reputation
 
 import (
-	refs "github.com/nspcc-dev/neofs-api-go/v2/refs/grpc"
+	refs "github.com/TrueCloudLab/frostfs-api-go/v2/refs/grpc"
 )
 
 // SetPublicKey sets binary public key of ID.

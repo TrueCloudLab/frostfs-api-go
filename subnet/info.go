@@ -1,12 +1,12 @@
 package subnet
 
 import (
-	"github.com/nspcc-dev/neofs-api-go/v2/refs"
-	refsgrpc "github.com/nspcc-dev/neofs-api-go/v2/refs/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
-	subnet "github.com/nspcc-dev/neofs-api-go/v2/subnet/grpc"
-	protoutil "github.com/nspcc-dev/neofs-api-go/v2/util/proto"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/refs"
+	refsgrpc "github.com/TrueCloudLab/frostfs-api-go/v2/refs/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
+	subnet "github.com/TrueCloudLab/frostfs-api-go/v2/subnet/grpc"
+	protoutil "github.com/TrueCloudLab/frostfs-api-go/v2/util/proto"
 )
 
 // Info represents information about NeoFS subnet. Structure is compatible with NeoFS API V2 protocol.

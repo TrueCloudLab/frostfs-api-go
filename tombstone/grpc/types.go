@@ -1,7 +1,7 @@
 package tombstone
 
 import (
-	refs "github.com/nspcc-dev/neofs-api-go/v2/refs/grpc"
+	refs "github.com/TrueCloudLab/frostfs-api-go/v2/refs/grpc"
 )
 
 // SetExpirationEpoch sets number of tombstone expiration epoch.

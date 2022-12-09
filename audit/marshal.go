@@ -1,10 +1,10 @@
 package audit
 
 import (
-	audit "github.com/nspcc-dev/neofs-api-go/v2/audit/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/refs"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
-	"github.com/nspcc-dev/neofs-api-go/v2/util/proto"
+	audit "github.com/TrueCloudLab/frostfs-api-go/v2/audit/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/refs"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/util/proto"
 )
 
 const (

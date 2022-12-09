@@ -1,11 +1,11 @@
 package acl
 
 import (
-	acl "github.com/nspcc-dev/neofs-api-go/v2/acl/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/refs"
-	refsGRPC "github.com/nspcc-dev/neofs-api-go/v2/refs/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
+	acl "github.com/TrueCloudLab/frostfs-api-go/v2/acl/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/refs"
+	refsGRPC "github.com/TrueCloudLab/frostfs-api-go/v2/refs/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
 )
 
 // RoleToGRPCField converts unified role enum into grpc enum.

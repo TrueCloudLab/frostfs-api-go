@@ -1,8 +1,8 @@
 package storagegrouptest
 
 import (
-	refstest "github.com/nspcc-dev/neofs-api-go/v2/refs/test"
-	"github.com/nspcc-dev/neofs-api-go/v2/storagegroup"
+	refstest "github.com/TrueCloudLab/frostfs-api-go/v2/refs/test"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/storagegroup"
 )
 
 func GenerateStorageGroup(empty bool) *storagegroup.StorageGroup {

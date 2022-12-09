@@ -7,7 +7,7 @@ These should run successfully:
 * `golangci-lint run ./...`;
 * `go fmt ./...` (should not change any files);
 * `go mog tidy` (should not change any files);
-* `./prepare.sh /path/to/neofs-api/on/your/machine` (should not change any files).
+* `./prepare.sh /path/to/frostfs-api/on/your/machine` (should not change any files).
 
 ## Writing changelog
 

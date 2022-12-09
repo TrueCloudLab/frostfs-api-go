@@ -7,11 +7,12 @@
 package object
 
 import (
-	grpc "github.com/nspcc-dev/neofs-api-go/v2/status/grpc"
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
+
+	grpc "github.com/TrueCloudLab/frostfs-api-go/v2/status/grpc"
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (

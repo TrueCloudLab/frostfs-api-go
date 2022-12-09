@@ -1,8 +1,8 @@
 package acltest
 
 import (
-	"github.com/nspcc-dev/neofs-api-go/v2/acl"
-	accountingtest "github.com/nspcc-dev/neofs-api-go/v2/refs/test"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/acl"
+	accountingtest "github.com/TrueCloudLab/frostfs-api-go/v2/refs/test"
 )
 
 func GenerateBearerToken(empty bool) *acl.BearerToken {

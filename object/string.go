@@ -1,7 +1,7 @@
 package object
 
 import (
-	object "github.com/nspcc-dev/neofs-api-go/v2/object/grpc"
+	object "github.com/TrueCloudLab/frostfs-api-go/v2/object/grpc"
 )
 
 // String returns string representation of Type.

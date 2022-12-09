@@ -8,7 +8,7 @@ import (
 )
 
 func TestWithNetworkURIAddress(t *testing.T) {
-	hostPort := "neofs.example.com:8080"
+	hostPort := "frostfs.example.com:8080"
 	apiPort := "127.0.0.1:8080"
 	serverName := "testServer"
 
@@ -22,25 +22,25 @@ func TestWithNetworkURIAddress(t *testing.T) {
 		{
 			uri:       grpcScheme + "://" + hostPort,
 			tlsConfig: nil,
-			wantHost:  "neofs.example.com:8080",
+			wantHost:  "frostfs.example.com:8080",
 			wantTLS:   false,
 		},
 		{
 			uri:       grpcScheme + "://" + hostPort,
 			tlsConfig: &tls.Config{},
-			wantHost:  "neofs.example.com:8080",
+			wantHost:  "frostfs.example.com:8080",
 			wantTLS:   false,
 		},
 		{
 			uri:       grpcTLSScheme + "://" + hostPort,
 			tlsConfig: nil,
-			wantHost:  "neofs.example.com:8080",
+			wantHost:  "frostfs.example.com:8080",
 			wantTLS:   true,
 		},
 		{
 			uri:       grpcTLSScheme + "://" + hostPort,
 			tlsConfig: &tls.Config{ServerName: serverName},
-			wantHost:  "neofs.example.com:8080",
+			wantHost:  "frostfs.example.com:8080",
 			wantTLS:   true,
 		},
 		{

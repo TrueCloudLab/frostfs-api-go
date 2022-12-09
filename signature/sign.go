@@ -5,14 +5,14 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/nspcc-dev/neofs-api-go/v2/accounting"
-	"github.com/nspcc-dev/neofs-api-go/v2/container"
-	"github.com/nspcc-dev/neofs-api-go/v2/netmap"
-	"github.com/nspcc-dev/neofs-api-go/v2/object"
-	"github.com/nspcc-dev/neofs-api-go/v2/refs"
-	"github.com/nspcc-dev/neofs-api-go/v2/reputation"
-	"github.com/nspcc-dev/neofs-api-go/v2/session"
-	"github.com/nspcc-dev/neofs-api-go/v2/util/signature"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/accounting"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/container"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/netmap"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/object"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/refs"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/reputation"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/session"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/util/signature"
 )
 
 type serviceRequest interface {

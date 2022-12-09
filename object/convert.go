@@ -3,13 +3,13 @@ package object
 import (
 	"fmt"
 
-	object "github.com/nspcc-dev/neofs-api-go/v2/object/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/refs"
-	refsGRPC "github.com/nspcc-dev/neofs-api-go/v2/refs/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
-	"github.com/nspcc-dev/neofs-api-go/v2/session"
-	sessionGRPC "github.com/nspcc-dev/neofs-api-go/v2/session/grpc"
+	object "github.com/TrueCloudLab/frostfs-api-go/v2/object/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/refs"
+	refsGRPC "github.com/TrueCloudLab/frostfs-api-go/v2/refs/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/session"
+	sessionGRPC "github.com/TrueCloudLab/frostfs-api-go/v2/session/grpc"
 )
 
 func TypeToGRPCField(t Type) object.ObjectType {

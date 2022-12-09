@@ -1,8 +1,8 @@
 package container
 
 import (
-	"github.com/nspcc-dev/neofs-api-go/v2/status"
-	statusgrpc "github.com/nspcc-dev/neofs-api-go/v2/status/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/status"
+	statusgrpc "github.com/TrueCloudLab/frostfs-api-go/v2/status/grpc"
 )
 
 // LocalizeFailStatus checks if passed global status.Code is related to container failure and:

@@ -4,8 +4,8 @@ import (
 	"math"
 	"testing"
 
-	"github.com/nspcc-dev/neofs-api-go/v2/util/proto"
-	"github.com/nspcc-dev/neofs-api-go/v2/util/proto/test"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/util/proto"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/util/proto/test"
 	"github.com/stretchr/testify/require"
 	goproto "google.golang.org/protobuf/proto"
 )

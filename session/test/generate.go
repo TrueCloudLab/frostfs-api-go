@@ -1,11 +1,11 @@
 package sessiontest
 
 import (
-	acltest "github.com/nspcc-dev/neofs-api-go/v2/acl/test"
-	"github.com/nspcc-dev/neofs-api-go/v2/internal/random"
-	refstest "github.com/nspcc-dev/neofs-api-go/v2/refs/test"
-	"github.com/nspcc-dev/neofs-api-go/v2/session"
-	statustest "github.com/nspcc-dev/neofs-api-go/v2/status/test"
+	acltest "github.com/TrueCloudLab/frostfs-api-go/v2/acl/test"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/internal/random"
+	refstest "github.com/TrueCloudLab/frostfs-api-go/v2/refs/test"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/session"
+	statustest "github.com/TrueCloudLab/frostfs-api-go/v2/status/test"
 )
 
 func GenerateCreateRequestBody(empty bool) *session.CreateRequestBody {

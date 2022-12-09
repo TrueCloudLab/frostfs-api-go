@@ -1,8 +1,8 @@
 package object
 
 import (
-	refs "github.com/nspcc-dev/neofs-api-go/v2/refs/grpc"
-	session "github.com/nspcc-dev/neofs-api-go/v2/session/grpc"
+	refs "github.com/TrueCloudLab/frostfs-api-go/v2/refs/grpc"
+	session "github.com/TrueCloudLab/frostfs-api-go/v2/session/grpc"
 )
 
 // SetKey sets key to the object attribute.

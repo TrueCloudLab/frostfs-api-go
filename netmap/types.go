@@ -1,8 +1,8 @@
 package netmap
 
 import (
-	"github.com/nspcc-dev/neofs-api-go/v2/refs"
-	"github.com/nspcc-dev/neofs-api-go/v2/session"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/refs"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/session"
 )
 
 type LocalNodeInfoRequest struct {

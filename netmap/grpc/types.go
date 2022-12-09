@@ -1,6 +1,6 @@
 package netmap
 
-import refs "github.com/nspcc-dev/neofs-api-go/v2/refs/grpc"
+import refs "github.com/TrueCloudLab/frostfs-api-go/v2/refs/grpc"
 
 // SetReplicas of placement policy.
 func (m *PlacementPolicy) SetReplicas(v []*Replica) {

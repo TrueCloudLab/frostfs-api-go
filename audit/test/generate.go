@@ -1,8 +1,8 @@
 package audittest
 
 import (
-	"github.com/nspcc-dev/neofs-api-go/v2/audit"
-	refstest "github.com/nspcc-dev/neofs-api-go/v2/refs/test"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/audit"
+	refstest "github.com/TrueCloudLab/frostfs-api-go/v2/refs/test"
 )
 
 func GenerateDataAuditResult(empty bool) *audit.DataAuditResult {

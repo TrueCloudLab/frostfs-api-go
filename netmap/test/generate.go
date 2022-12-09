@@ -1,9 +1,9 @@
 package netmaptest
 
 import (
-	"github.com/nspcc-dev/neofs-api-go/v2/netmap"
-	refstest "github.com/nspcc-dev/neofs-api-go/v2/refs/test"
-	sessiontest "github.com/nspcc-dev/neofs-api-go/v2/session/test"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/netmap"
+	refstest "github.com/TrueCloudLab/frostfs-api-go/v2/refs/test"
+	sessiontest "github.com/TrueCloudLab/frostfs-api-go/v2/session/test"
 )
 
 func GenerateFilter(empty bool) *netmap.Filter {

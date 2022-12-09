@@ -1,7 +1,7 @@
 package statustest
 
 import (
-	"github.com/nspcc-dev/neofs-api-go/v2/status"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/status"
 )
 
 // Detail returns status.Detail filled with static random values.

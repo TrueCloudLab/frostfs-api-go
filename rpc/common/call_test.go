@@ -3,7 +3,7 @@ package common_test
 import (
 	"testing"
 
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/common"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/common"
 	"github.com/stretchr/testify/require"
 )
 

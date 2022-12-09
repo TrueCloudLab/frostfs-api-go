@@ -1,9 +1,9 @@
 package container
 
 import (
-	container "github.com/nspcc-dev/neofs-api-go/v2/container/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
-	protoutil "github.com/nspcc-dev/neofs-api-go/v2/util/proto"
+	container "github.com/TrueCloudLab/frostfs-api-go/v2/container/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
+	protoutil "github.com/TrueCloudLab/frostfs-api-go/v2/util/proto"
 )
 
 const (

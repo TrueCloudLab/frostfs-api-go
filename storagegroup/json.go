@@ -1,8 +1,8 @@
 package storagegroup
 
 import (
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
-	storagegroup "github.com/nspcc-dev/neofs-api-go/v2/storagegroup/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
+	storagegroup "github.com/TrueCloudLab/frostfs-api-go/v2/storagegroup/grpc"
 )
 
 func (s *StorageGroup) MarshalJSON() ([]byte, error) {

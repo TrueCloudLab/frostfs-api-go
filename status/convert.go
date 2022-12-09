@@ -1,9 +1,9 @@
 package status
 
 import (
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
-	status "github.com/nspcc-dev/neofs-api-go/v2/status/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
+	status "github.com/TrueCloudLab/frostfs-api-go/v2/status/grpc"
 )
 
 func (x *Detail) ToGRPCMessage() grpc.Message {

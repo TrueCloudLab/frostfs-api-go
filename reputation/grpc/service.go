@@ -1,7 +1,7 @@
 package reputation
 
 import (
-	session "github.com/nspcc-dev/neofs-api-go/v2/session/grpc"
+	session "github.com/TrueCloudLab/frostfs-api-go/v2/session/grpc"
 )
 
 // SetEpoch sets epoch in which the trust was assessed.

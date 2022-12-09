@@ -4,9 +4,9 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/nspcc-dev/neofs-api-go/v2/netmap"
-	netmaptest "github.com/nspcc-dev/neofs-api-go/v2/netmap/test"
-	"github.com/nspcc-dev/neofs-api-go/v2/refs"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/netmap"
+	netmaptest "github.com/TrueCloudLab/frostfs-api-go/v2/netmap/test"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/refs"
 	"github.com/stretchr/testify/require"
 )
 

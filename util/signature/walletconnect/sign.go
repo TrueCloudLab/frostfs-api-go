@@ -7,7 +7,7 @@ import (
 	"encoding/binary"
 	"encoding/hex"
 
-	crypto "github.com/nspcc-dev/neofs-crypto"
+	crypto "github.com/TrueCloudLab/frostfs-crypto"
 )
 
 const (

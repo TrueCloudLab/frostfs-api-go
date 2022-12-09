@@ -1,10 +1,10 @@
 package session
 
 import (
-	"github.com/nspcc-dev/neofs-api-go/v2/acl"
-	"github.com/nspcc-dev/neofs-api-go/v2/refs"
-	"github.com/nspcc-dev/neofs-api-go/v2/status"
-	"github.com/nspcc-dev/neofs-api-go/v2/util/proto"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/acl"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/refs"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/status"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/util/proto"
 )
 
 type CreateRequestBody struct {

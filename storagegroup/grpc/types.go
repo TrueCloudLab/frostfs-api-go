@@ -1,7 +1,7 @@
 package storagegroup
 
 import (
-	refs "github.com/nspcc-dev/neofs-api-go/v2/refs/grpc"
+	refs "github.com/TrueCloudLab/frostfs-api-go/v2/refs/grpc"
 )
 
 // SetValidationDataSize sets the total size of the payloads of the storage group.

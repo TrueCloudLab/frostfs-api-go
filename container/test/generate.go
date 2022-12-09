@@ -1,11 +1,11 @@
 package containertest
 
 import (
-	acltest "github.com/nspcc-dev/neofs-api-go/v2/acl/test"
-	"github.com/nspcc-dev/neofs-api-go/v2/container"
-	netmaptest "github.com/nspcc-dev/neofs-api-go/v2/netmap/test"
-	refstest "github.com/nspcc-dev/neofs-api-go/v2/refs/test"
-	sessiontest "github.com/nspcc-dev/neofs-api-go/v2/session/test"
+	acltest "github.com/TrueCloudLab/frostfs-api-go/v2/acl/test"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/container"
+	netmaptest "github.com/TrueCloudLab/frostfs-api-go/v2/netmap/test"
+	refstest "github.com/TrueCloudLab/frostfs-api-go/v2/refs/test"
+	sessiontest "github.com/TrueCloudLab/frostfs-api-go/v2/session/test"
 )
 
 func GenerateAttribute(empty bool) *container.Attribute {

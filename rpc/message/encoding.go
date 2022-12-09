@@ -1,7 +1,7 @@
 package message
 
 import (
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/grpc"
 	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/proto"
 )

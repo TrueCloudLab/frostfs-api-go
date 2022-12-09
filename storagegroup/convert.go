@@ -1,11 +1,11 @@
 package storagegroup
 
 import (
-	"github.com/nspcc-dev/neofs-api-go/v2/refs"
-	refsGRPC "github.com/nspcc-dev/neofs-api-go/v2/refs/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/grpc"
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
-	sg "github.com/nspcc-dev/neofs-api-go/v2/storagegroup/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/refs"
+	refsGRPC "github.com/TrueCloudLab/frostfs-api-go/v2/refs/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/grpc"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
+	sg "github.com/TrueCloudLab/frostfs-api-go/v2/storagegroup/grpc"
 )
 
 func (s *StorageGroup) ToGRPCMessage() grpc.Message {

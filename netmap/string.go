@@ -1,7 +1,7 @@
 package netmap
 
 import (
-	netmap "github.com/nspcc-dev/neofs-api-go/v2/netmap/grpc"
+	netmap "github.com/TrueCloudLab/frostfs-api-go/v2/netmap/grpc"
 )
 
 // String returns string representation of Clause.

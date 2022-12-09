@@ -3,9 +3,9 @@ package acl_test
 import (
 	"testing"
 
-	"github.com/nspcc-dev/neofs-api-go/v2/acl"
-	aclGrpc "github.com/nspcc-dev/neofs-api-go/v2/acl/grpc"
-	acltest "github.com/nspcc-dev/neofs-api-go/v2/acl/test"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/acl"
+	aclGrpc "github.com/TrueCloudLab/frostfs-api-go/v2/acl/grpc"
+	acltest "github.com/TrueCloudLab/frostfs-api-go/v2/acl/test"
 )
 
 func BenchmarkTable_ToGRPCMessage(b *testing.B) {

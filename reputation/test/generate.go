@@ -1,9 +1,9 @@
 package reputationtest
 
 import (
-	refstest "github.com/nspcc-dev/neofs-api-go/v2/refs/test"
-	"github.com/nspcc-dev/neofs-api-go/v2/reputation"
-	sessiontest "github.com/nspcc-dev/neofs-api-go/v2/session/test"
+	refstest "github.com/TrueCloudLab/frostfs-api-go/v2/refs/test"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/reputation"
+	sessiontest "github.com/TrueCloudLab/frostfs-api-go/v2/session/test"
 )
 
 func GeneratePeerID(empty bool) *reputation.PeerID {

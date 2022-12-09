@@ -3,9 +3,9 @@ package session_test
 import (
 	"testing"
 
-	"github.com/nspcc-dev/neofs-api-go/v2/rpc/message"
-	rpctest "github.com/nspcc-dev/neofs-api-go/v2/rpc/message/test"
-	sessiontest "github.com/nspcc-dev/neofs-api-go/v2/session/test"
+	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
+	rpctest "github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message/test"
+	sessiontest "github.com/TrueCloudLab/frostfs-api-go/v2/session/test"
 )
 
 func TestMessageConvert(t *testing.T) {
