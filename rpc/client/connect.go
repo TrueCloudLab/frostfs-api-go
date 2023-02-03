@@ -7,27 +7,10 @@ import (
 	"net"
 	"net/url"
 
-	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/grpc"
 	grpcstd "google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/credentials/insecure"
 )
-
-func (c *Client) createGRPCClient(ctx context.Context) (err error) {
-	c.gRPCClientOnce.Do(func() {
-		if err = c.openGRPCConn(ctx); err != nil {
-			err = fmt.Errorf("open gRPC connection: %w", err)
-			return
-		}
-
-		c.gRPCClient = grpc.New(
-			grpc.WithClientConnection(c.conn),
-			grpc.WithRWTimeout(c.rwTimeout),
-		)
-	})
-
-	return
-}
 
 var errInvalidEndpoint = errors.New("invalid endpoint options")
 

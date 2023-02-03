@@ -31,11 +31,9 @@ const (
 	defaultRWTimeout   = 1 * time.Minute
 )
 
-func defaultCfg() *cfg {
-	return &cfg{
-		dialTimeout: defaultDialTimeout,
-		rwTimeout:   defaultRWTimeout,
-	}
+func (c *cfg) initDefault() {
+	c.dialTimeout = defaultDialTimeout
+	c.rwTimeout = defaultRWTimeout
 }
 
 // WithNetworkAddress returns option to specify

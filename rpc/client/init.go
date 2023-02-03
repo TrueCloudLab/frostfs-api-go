@@ -1,11 +1,12 @@
 package client
 
 import (
+	"context"
 	"io"
 
 	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/common"
-	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/grpc"
 	"github.com/TrueCloudLab/frostfs-api-go/v2/rpc/message"
+	"google.golang.org/grpc"
 )
 
 // MessageReader is an interface of the Message reader.
@@ -45,39 +46,24 @@ func (c *Client) Init(info common.CallMethodInfo, opts ...CallOption) (MessageRe
 		opt(prm)
 	}
 
-	return c.initGRPC(info, prm)
-}
-
-type rwGRPC struct {
-	grpc.MessageReadWriter
-}
-
-func (g rwGRPC) ReadMessage(m message.Message) error {
-	// Can be optimized: we can create blank message here.
-	gm := m.ToGRPCMessage()
-
-	if err := g.MessageReadWriter.ReadMessage(gm); err != nil {
-		return err
-	}
-
-	return m.FromGRPCMessage(gm)
-}
-
-func (g rwGRPC) WriteMessage(m message.Message) error {
-	return g.MessageReadWriter.WriteMessage(m.ToGRPCMessage())
-}
-
-func (c *Client) initGRPC(info common.CallMethodInfo, prm *callParameters) (MessageReadWriter, error) {
-	if err := c.createGRPCClient(prm.ctx); err != nil {
+	if err := c.openGRPCConn(prm.ctx); err != nil {
 		return nil, err
 	}
 
-	rw, err := c.gRPCClient.Init(info, grpc.WithContext(prm.ctx))
+	ctx, cancel := context.WithCancel(prm.ctx)
+	stream, err := c.conn.NewStream(ctx, &grpc.StreamDesc{
+		StreamName:    info.Name,
+		ServerStreams: info.ServerStream(),
+		ClientStreams: info.ClientStream(),
+	}, toMethodName(info))
 	if err != nil {
+		cancel()
 		return nil, err
 	}
 
-	return &rwGRPC{
-		MessageReadWriter: rw,
+	return &streamWrapper{
+		ClientStream: stream,
+		cancel:       cancel,
+		timeout:      c.rwTimeout,
 	}, nil
 }
