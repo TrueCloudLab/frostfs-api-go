@@ -8,8 +8,6 @@ import (
 	"net/url"
 
 	grpcstd "google.golang.org/grpc"
-	"google.golang.org/grpc/credentials"
-	"google.golang.org/grpc/credentials/insecure"
 )
 
 var errInvalidEndpoint = errors.New("invalid endpoint options")
@@ -23,21 +21,10 @@ func (c *Client) openGRPCConn(ctx context.Context) error {
 		return errInvalidEndpoint
 	}
 
-	var creds credentials.TransportCredentials
-
-	if c.tlsCfg != nil {
-		creds = credentials.NewTLS(c.tlsCfg)
-	} else {
-		creds = insecure.NewCredentials()
-	}
-
 	dialCtx, cancel := context.WithTimeout(ctx, c.dialTimeout)
 	var err error
 
-	c.conn, err = grpcstd.DialContext(dialCtx, c.addr,
-		grpcstd.WithTransportCredentials(creds),
-		grpcstd.WithBlock(),
-	)
+	c.conn, err = grpcstd.DialContext(dialCtx, c.addr, c.grpcDialOpts...)
 
 	cancel()
 

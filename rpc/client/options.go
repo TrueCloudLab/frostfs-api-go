@@ -5,6 +5,8 @@ import (
 	"time"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
+	"google.golang.org/grpc/keepalive"
 )
 
 const (
@@ -21,19 +23,28 @@ type cfg struct {
 	dialTimeout time.Duration
 	rwTimeout   time.Duration
 
-	tlsCfg *tls.Config
+	tlsCfg       *tls.Config
+	grpcDialOpts []grpc.DialOption
 
 	conn *grpc.ClientConn
 }
 
 const (
-	defaultDialTimeout = 5 * time.Second
-	defaultRWTimeout   = 1 * time.Minute
+	defaultDialTimeout      = 5 * time.Second
+	defaultKeepAliveTimeout = 5 * time.Second
+	defaultRWTimeout        = 1 * time.Minute
 )
 
 func (c *cfg) initDefault() {
 	c.dialTimeout = defaultDialTimeout
 	c.rwTimeout = defaultRWTimeout
+	c.grpcDialOpts = []grpc.DialOption{
+		grpc.WithBlock(),
+		grpc.WithTransportCredentials(insecure.NewCredentials()),
+		grpc.WithKeepaliveParams(keepalive.ClientParameters{
+			Timeout: defaultKeepAliveTimeout,
+		}),
+	}
 }
 
 // WithNetworkAddress returns option to specify
@@ -113,5 +124,12 @@ func WithGRPCConn(v *grpc.ClientConn) Option {
 		if v != nil {
 			c.conn = v
 		}
+	}
+}
+
+// WithGRPCDialOptions returns an option to specify grpc.DialOption.
+func WithGRPCDialOptions(opts []grpc.DialOption) Option {
+	return func(c *cfg) {
+		c.grpcDialOpts = append(c.grpcDialOpts, opts...)
 	}
 }
