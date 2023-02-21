@@ -31,6 +31,7 @@ const (
 	bearerTokenBodyACLField      = 1
 	bearerTokenBodyOwnerField    = 2
 	bearerTokenBodyLifetimeField = 3
+	bearerTokenBodyImpersonate   = 4
 
 	bearerTokenBodyField      = 1
 	bearerTokenSignatureField = 2
@@ -251,7 +252,8 @@ func (bt *BearerTokenBody) StableMarshal(buf []byte) []byte {
 
 	offset += protoutil.NestedStructureMarshal(bearerTokenBodyACLField, buf[offset:], bt.eacl)
 	offset += protoutil.NestedStructureMarshal(bearerTokenBodyOwnerField, buf[offset:], bt.ownerID)
-	protoutil.NestedStructureMarshal(bearerTokenBodyLifetimeField, buf[offset:], bt.lifetime)
+	offset += protoutil.NestedStructureMarshal(bearerTokenBodyLifetimeField, buf[offset:], bt.lifetime)
+	protoutil.BoolMarshal(bearerTokenBodyImpersonate, buf[offset:], bt.impersonate)
 
 	return buf
 }
@@ -264,6 +266,7 @@ func (bt *BearerTokenBody) StableSize() (size int) {
 	size += protoutil.NestedStructureSize(bearerTokenBodyACLField, bt.eacl)
 	size += protoutil.NestedStructureSize(bearerTokenBodyOwnerField, bt.ownerID)
 	size += protoutil.NestedStructureSize(bearerTokenBodyLifetimeField, bt.lifetime)
+	size += protoutil.BoolSize(bearerTokenBodyImpersonate, bt.impersonate)
 
 	return size
 }

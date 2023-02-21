@@ -84,6 +84,11 @@ func (m *BearerToken_Body) SetLifetime(v *BearerToken_Body_TokenLifetime) {
 	m.Lifetime = v
 }
 
+// SetImpersonate allows impersonate.
+func (m *BearerToken_Body) SetImpersonate(v bool) {
+	m.AllowImpersonate = v
+}
+
 // SetBody sets bearer token body.
 func (m *BearerToken) SetBody(v *BearerToken_Body) {
 	m.Body = v

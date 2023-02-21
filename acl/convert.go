@@ -427,6 +427,7 @@ func (bt *BearerTokenBody) ToGRPCMessage() grpc.Message {
 		m.SetOwnerId(bt.ownerID.ToGRPCMessage().(*refsGRPC.OwnerID))
 		m.SetLifetime(bt.lifetime.ToGRPCMessage().(*acl.BearerToken_Body_TokenLifetime))
 		m.SetEaclTable(bt.eacl.ToGRPCMessage().(*acl.EACLTable))
+		m.SetImpersonate(bt.impersonate)
 	}
 
 	return m
@@ -478,6 +479,8 @@ func (bt *BearerTokenBody) FromGRPCMessage(m grpc.Message) error {
 
 		err = bt.eacl.FromGRPCMessage(eacl)
 	}
+
+	bt.impersonate = v.GetAllowImpersonate()
 
 	return err
 }
