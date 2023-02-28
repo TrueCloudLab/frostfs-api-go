@@ -7,6 +7,7 @@ import (
 	"github.com/TrueCloudLab/frostfs-api-go/v2/refs"
 	"github.com/TrueCloudLab/frostfs-api-go/v2/session"
 	"github.com/TrueCloudLab/frostfs-api-go/v2/util/signature"
+	"golang.org/x/sync/errgroup"
 )
 
 type serviceRequest interface {
@@ -68,23 +69,33 @@ func signServiceResponse(key *ecdsa.PrivateKey, v serviceResponse) error {
 }
 
 func signMessageParts(key *ecdsa.PrivateKey, body, meta, header stableMarshaler, hasHeader bool, result signatureReceiver) error {
+	eg := &errgroup.Group{}
 	if !hasHeader {
 		// sign session message body
-		if err := signServiceMessagePart(key, body, result.SetBodySignature); err != nil {
-			return fmt.Errorf("could not sign body: %w", err)
-		}
+		eg.Go(func() error {
+			if err := signServiceMessagePart(key, body, result.SetBodySignature); err != nil {
+				return fmt.Errorf("could not sign body: %w", err)
+			}
+			return nil
+		})
 	}
 
 	// sign meta header
-	if err := signServiceMessagePart(key, meta, result.SetMetaSignature); err != nil {
-		return fmt.Errorf("could not sign meta header: %w", err)
-	}
+	eg.Go(func() error {
+		if err := signServiceMessagePart(key, meta, result.SetMetaSignature); err != nil {
+			return fmt.Errorf("could not sign meta header: %w", err)
+		}
+		return nil
+	})
 
 	// sign verification header origin
-	if err := signServiceMessagePart(key, header, result.SetOriginSignature); err != nil {
-		return fmt.Errorf("could not sign origin of verification header: %w", err)
-	}
-	return nil
+	eg.Go(func() error {
+		if err := signServiceMessagePart(key, header, result.SetOriginSignature); err != nil {
+			return fmt.Errorf("could not sign origin of verification header: %w", err)
+		}
+		return nil
+	})
+	return eg.Wait()
 }
 
 func signServiceMessagePart(key *ecdsa.PrivateKey, part stableMarshaler, sigWrite func(*refs.Signature)) error {
