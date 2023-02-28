@@ -6,14 +6,20 @@ import (
 
 	"github.com/TrueCloudLab/frostfs-api-go/v2/refs"
 	"github.com/TrueCloudLab/frostfs-api-go/v2/session"
-	"github.com/TrueCloudLab/frostfs-api-go/v2/util/collection"
 	"github.com/TrueCloudLab/frostfs-api-go/v2/util/signature"
+	"golang.org/x/sync/errgroup"
 )
 
 type signatureProvider interface {
 	GetBodySignature() *refs.Signature
 	GetMetaSignature() *refs.Signature
 	GetOriginSignature() *refs.Signature
+}
+
+type buffers struct {
+	Body   []byte
+	Meta   []byte
+	Header []byte
 }
 
 // VerifyServiceMessage verifies service message.
@@ -34,16 +40,23 @@ func verifyServiceRequest(v serviceRequest) error {
 	meta := v.GetMetaHeader()
 	verificationHeader := v.GetVerificationHeader()
 	body := serviceMessageBody(v)
-	size := collection.Max(body.StableSize(), meta.StableSize(), verificationHeader.StableSize())
-	buf := make([]byte, 0, size)
-	return verifyServiceRequestRecursive(body, meta, verificationHeader, buf)
+	buffers := createBuffers(body.StableSize(), meta.StableSize(), verificationHeader.StableSize())
+	return verifyServiceRequestRecursive(body, meta, verificationHeader, buffers)
 }
 
-func verifyServiceRequestRecursive(body stableMarshaler, meta *session.RequestMetaHeader, verify *session.RequestVerificationHeader, buf []byte) error {
+func createBuffers(bodySize, metaSize, headerSize int) *buffers {
+	return &buffers{
+		Body:   make([]byte, 0, bodySize),
+		Meta:   make([]byte, 0, metaSize),
+		Header: make([]byte, 0, headerSize),
+	}
+}
+
+func verifyServiceRequestRecursive(body stableMarshaler, meta *session.RequestMetaHeader, verify *session.RequestVerificationHeader, buffers *buffers) error {
 	verificationHeaderOrigin := verify.GetOrigin()
 	metaOrigin := meta.GetOrigin()
 
-	stop, err := verifyMessageParts(body, meta, verificationHeaderOrigin, verificationHeaderOrigin != nil, verify, buf)
+	stop, err := verifyMessageParts(body, meta, verificationHeaderOrigin, verificationHeaderOrigin != nil, verify, buffers)
 	if err != nil {
 		return err
 	}
@@ -51,23 +64,40 @@ func verifyServiceRequestRecursive(body stableMarshaler, meta *session.RequestMe
 		return nil
 	}
 
-	return verifyServiceRequestRecursive(body, metaOrigin, verificationHeaderOrigin, buf)
+	return verifyServiceRequestRecursive(body, metaOrigin, verificationHeaderOrigin, buffers)
 }
 
-func verifyMessageParts(body, meta, originHeader stableMarshaler, hasOriginHeader bool, sigProvider signatureProvider, buf []byte) (stop bool, err error) {
-	if err := verifyServiceMessagePart(meta, sigProvider.GetMetaSignature, buf); err != nil {
-		return false, fmt.Errorf("could not verify meta header: %w", err)
+func verifyMessageParts(body, meta, originHeader stableMarshaler, hasOriginHeader bool, sigProvider signatureProvider, buffers *buffers) (stop bool, err error) {
+	eg := &errgroup.Group{}
+
+	eg.Go(func() error {
+		if err := verifyServiceMessagePart(meta, sigProvider.GetMetaSignature, buffers.Meta); err != nil {
+			return fmt.Errorf("could not verify meta header: %w", err)
+		}
+		return nil
+	})
+
+	eg.Go(func() error {
+		if err := verifyServiceMessagePart(originHeader, sigProvider.GetOriginSignature, buffers.Header); err != nil {
+			return fmt.Errorf("could not verify origin of verification header: %w", err)
+		}
+		return nil
+	})
+
+	if !hasOriginHeader {
+		eg.Go(func() error {
+			if err := verifyServiceMessagePart(body, sigProvider.GetBodySignature, buffers.Body); err != nil {
+				return fmt.Errorf("could not verify body: %w", err)
+			}
+			return nil
+		})
 	}
 
-	if err := verifyServiceMessagePart(originHeader, sigProvider.GetOriginSignature, buf); err != nil {
-		return false, fmt.Errorf("could not verify origin of verification header: %w", err)
+	if err := eg.Wait(); err != nil {
+		return false, err
 	}
 
 	if !hasOriginHeader {
-		if err := verifyServiceMessagePart(body, sigProvider.GetBodySignature, buf); err != nil {
-			return false, fmt.Errorf("could not verify body: %w", err)
-		}
-
 		return true, nil
 	}
 
@@ -82,16 +112,15 @@ func verifyServiceResponse(v serviceResponse) error {
 	meta := v.GetMetaHeader()
 	verificationHeader := v.GetVerificationHeader()
 	body := serviceMessageBody(v)
-	size := collection.Max(body.StableSize(), meta.StableSize(), verificationHeader.StableSize())
-	buf := make([]byte, 0, size)
-	return verifyServiceResponseRecursive(body, meta, verificationHeader, buf)
+	buffers := createBuffers(body.StableSize(), meta.StableSize(), verificationHeader.StableSize())
+	return verifyServiceResponseRecursive(body, meta, verificationHeader, buffers)
 }
 
-func verifyServiceResponseRecursive(body stableMarshaler, meta *session.ResponseMetaHeader, verify *session.ResponseVerificationHeader, buf []byte) error {
+func verifyServiceResponseRecursive(body stableMarshaler, meta *session.ResponseMetaHeader, verify *session.ResponseVerificationHeader, buffers *buffers) error {
 	verificationHeaderOrigin := verify.GetOrigin()
 	metaOrigin := meta.GetOrigin()
 
-	stop, err := verifyMessageParts(body, meta, verificationHeaderOrigin, verificationHeaderOrigin != nil, verify, buf)
+	stop, err := verifyMessageParts(body, meta, verificationHeaderOrigin, verificationHeaderOrigin != nil, verify, buffers)
 	if err != nil {
 		return err
 	}
@@ -99,7 +128,7 @@ func verifyServiceResponseRecursive(body stableMarshaler, meta *session.Response
 		return nil
 	}
 
-	return verifyServiceResponseRecursive(body, metaOrigin, verificationHeaderOrigin, buf)
+	return verifyServiceResponseRecursive(body, metaOrigin, verificationHeaderOrigin, buffers)
 }
 
 func verifyServiceMessagePart(part stableMarshaler, sigRdr func() *refs.Signature, buf []byte) error {
