@@ -70,3 +70,56 @@ func TestBalanceResponse(t *testing.T) {
 	// verification must fail
 	require.Error(t, VerifyServiceMessage(req))
 }
+
+func BenchmarkSignRequest(b *testing.B) {
+	key, _ := crypto.LoadPrivateKey("Kwk6k2eC3L3QuPvD8aiaNyoSXgQ2YL1bwS5CP1oKoA9waeAze97s")
+
+	b.ResetTimer()
+	b.ReportAllocs()
+
+	for i := 0; i < b.N; i++ {
+		b.StopTimer()
+		dec := new(accounting.Decimal)
+		dec.SetValue(100)
+
+		body := new(accounting.BalanceResponseBody)
+		body.SetBalance(dec)
+
+		meta := new(session.ResponseMetaHeader)
+		meta.SetTTL(1)
+
+		resp := new(accounting.BalanceResponse)
+		resp.SetBody(body)
+		resp.SetMetaHeader(meta)
+
+		b.StartTimer()
+		SignServiceMessage(key, resp)
+	}
+}
+
+func BenchmarkVerifyRequest(b *testing.B) {
+	key, _ := crypto.LoadPrivateKey("Kwk6k2eC3L3QuPvD8aiaNyoSXgQ2YL1bwS5CP1oKoA9waeAze97s")
+
+	b.ResetTimer()
+	b.ReportAllocs()
+
+	for i := 0; i < b.N; i++ {
+		b.StopTimer()
+		dec := new(accounting.Decimal)
+		dec.SetValue(100)
+
+		body := new(accounting.BalanceResponseBody)
+		body.SetBalance(dec)
+
+		meta := new(session.ResponseMetaHeader)
+		meta.SetTTL(1)
+
+		resp := new(accounting.BalanceResponse)
+		resp.SetBody(body)
+		resp.SetMetaHeader(meta)
+		SignServiceMessage(key, resp)
+		b.StartTimer()
+
+		VerifyServiceMessage(resp)
+	}
+}
