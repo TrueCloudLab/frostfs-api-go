@@ -52,6 +52,8 @@ type BearerTokenBody struct {
 	ownerID *refs.OwnerID
 
 	lifetime *TokenLifetime
+
+	impersonate bool
 }
 
 type BearerToken struct {
@@ -338,6 +340,18 @@ func (bt *BearerTokenBody) GetLifetime() *TokenLifetime {
 
 func (bt *BearerTokenBody) SetLifetime(v *TokenLifetime) {
 	bt.lifetime = v
+}
+
+func (bt *BearerTokenBody) GetImpersonate() bool {
+	if bt != nil {
+		return bt.impersonate
+	}
+
+	return false
+}
+
+func (bt *BearerTokenBody) SetImpersonate(v bool) {
+	bt.impersonate = v
 }
 
 func (bt *BearerToken) GetBody() *BearerTokenBody {
